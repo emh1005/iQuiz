@@ -16,6 +16,9 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        subjects.add(subject: Subject(title: "Mathematics", desc: "Questions about math!"))
+        subjects.add(subject: Subject(title: "Marvel Super Heroes", desc: "Questions about superheroes!"))
+        subjects.add(subject: Subject(title: "Science", desc: "Questions about science!"))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
