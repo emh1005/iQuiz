@@ -10,15 +10,14 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    private var subjects = Subjects.shared
+    var subjectTitle: [String] = ["Mathematics", "Marvel Super Heroes", "Science"]
+    var subjectDesc: [String] = ["Questions about math!", "Questions about superheroes!", "Questions about science!"]
 
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        subjects.add(subject: Subject(title: "Mathematics", desc: "Questions about math!"))
-        subjects.add(subject: Subject(title: "Marvel Super Heroes", desc: "Questions about superheroes!"))
-        subjects.add(subject: Subject(title: "Science", desc: "Questions about science!"))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -48,16 +47,17 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.subjects.list.count
+        return subjectTitle.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subjectCell", for: indexPath) as! TableViewCell
         
-        let subject = self.subjects.list[indexPath.row]
-        cell.titleLabel.text = subject.title
-        cell.descLabel.text = subject.desc
+            let i = indexPath.row
+            
+            cell.titleLabel.text = subjectTitle[i]
+            cell.descLabel.text = subjectDesc[i]
 
         return cell
     }

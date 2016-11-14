@@ -15,7 +15,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        /*let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        splitViewController.delegate = self
+        */
         // Override point for customization after application launch.
+        let defaults = UserDefaults.standard
+        var counts = defaults.integer(forKey: "count")
+        counts = 0
+        //NSLog("\(counts)")
+        defaults.set(counts, forKey: "count")
+        
+        var answer = defaults.integer(forKey: "answer")
+        //var answer: String = "answer"
+        //if answer == nil {
+        answer = 0
+        //}
+        //NSLog("\(answer)")
+        defaults.set(answer, forKey: "answer")
+        
+        var rights = defaults.integer(forKey: "right")
+        rights = 0
+        //NSLog("\(rights)")
+        defaults.set(rights, forKey: "right")
+        
         return true
     }
 
@@ -40,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

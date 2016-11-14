@@ -12,6 +12,8 @@ class Subject: NSObject, NSCoding {
 
     var title: String
     var desc: String
+    //let questions: [String]
+    //let answers: [[String]]
     
     // MARK: NSCoding
     
@@ -30,6 +32,18 @@ class Subject: NSObject, NSCoding {
             desc: desc
         )
     }
+    
+   /* init(
+        //title: String, desc: String,
+        questions: [String], answers: [[String]]
+        //, answer: Int
+        ) {
+        //self.title = title
+        //  self.desc = desc
+        self.questions = questions
+        self.answers = answers
+        //self.answer = answer
+    }*/
     
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.title, forKey: "title")
